@@ -39,3 +39,19 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Frontend build output ###
+dist/
+.env.local
+.env.*.local
+
+### Logs & JVM crash dumps ###
+*.log
+logs/
+hs_err_pid*.log
+replay_pid*.log
+.attach_pid*
+
+### Windows ###
+Thumbs.db
+Desktop.ini
