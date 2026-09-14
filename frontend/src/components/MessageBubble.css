@@ -1,0 +1,152 @@
+/* ── Shared ───────────────────────────────────────── */
+.msg {
+  display: flex;
+  gap: var(--sp-3);
+  max-width: 820px;
+}
+
+/* ── User messages ───────────────────────────────── */
+.msg-user {
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+.msg-bubble-user {
+  background: var(--accent);
+  color: white;
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-sm) var(--radius-lg);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 480px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── Assistant messages ──────────────────────────── */
+.msg-assistant {
+  align-self: flex-start;
+}
+.msg-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.msg-content {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* Markdown prose */
+.msg-content p {
+  margin-bottom: var(--sp-3);
+}
+.msg-content p:last-child {
+  margin-bottom: 0;
+}
+.msg-content h1,
+.msg-content h2,
+.msg-content h3,
+.msg-content h4 {
+  margin-top: var(--sp-4);
+  margin-bottom: var(--sp-2);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.msg-content h1 { font-size: 18px; }
+.msg-content h2 { font-size: 16px; }
+.msg-content h3 { font-size: 15px; }
+.msg-content ul,
+.msg-content ol {
+  padding-left: var(--sp-5);
+  margin-bottom: var(--sp-3);
+}
+.msg-content li {
+  margin-bottom: var(--sp-1);
+}
+.msg-content blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: var(--sp-4);
+  color: var(--text-secondary);
+  margin: var(--sp-3) 0;
+}
+.msg-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--sp-3) 0;
+  font-size: 13px;
+}
+.msg-content th,
+.msg-content td {
+  border: 1px solid var(--border);
+  padding: var(--sp-2) var(--sp-3);
+  text-align: left;
+}
+.msg-content th {
+  background: var(--bg-elevated);
+  font-weight: 600;
+}
+.msg-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: var(--sp-4) 0;
+}
+.msg-content a {
+  color: var(--accent);
+}
+
+.inline-code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+/* ── Error bubble ────────────────────────────────── */
+.msg-error-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.msg-error-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--error);
+  background: var(--error-bg);
+  padding: var(--sp-3);
+  border-radius: var(--radius-md);
+}
+.msg-error-content svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.msg-retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  align-self: flex-start;
+  transition: background var(--transition), color var(--transition);
+}
+.msg-retry-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}

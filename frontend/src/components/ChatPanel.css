@@ -1,0 +1,143 @@
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-root);
+}
+
+/* ── Transcript ──────────────────────────────────── */
+.chat-transcript {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sp-6) var(--sp-6) var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* ── Empty state ─────────────────────────────────── */
+.chat-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  gap: var(--sp-2);
+  color: var(--text-muted);
+}
+.chat-empty-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.chat-empty-desc {
+  font-size: 13px;
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+/* ── Typing indicator ────────────────────────────── */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) 0;
+}
+.typing-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.typing-dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.typing-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: bounce 1.2s infinite;
+}
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ── Composer ────────────────────────────────────── */
+.chat-composer {
+  padding: var(--sp-3) var(--sp-6) var(--sp-6);
+  background: var(--bg-root);
+}
+.composer-inner {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-2);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-3);
+  transition: border-color var(--transition);
+}
+.composer-inner:focus-within {
+  border-color: var(--accent);
+}
+.composer-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  max-height: 160px;
+  padding: var(--sp-1) var(--sp-2);
+}
+.composer-input::placeholder {
+  color: var(--text-muted);
+}
+.composer-input:disabled {
+  opacity: 0.5;
+}
+.composer-send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: white;
+  flex-shrink: 0;
+  transition: background var(--transition), opacity var(--transition);
+}
+.composer-send:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+.composer-send:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .chat-transcript {
+    padding: var(--sp-10) var(--sp-4) var(--sp-4);
+  }
+  .chat-composer {
+    padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  }
+}
